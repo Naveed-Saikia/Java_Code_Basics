@@ -1,0 +1,61 @@
+package Binary_Search;
+import java.util.*;
+
+public class BS {
+	
+	static int Binary(int [] arr,int target,int start,int end) {
+		if(arr.length==0) {
+			return -1;
+		}
+		int mid=(start+end)/2;
+		if(arr[mid]==target) {
+			return mid;
+		}
+		if(arr[mid]>target) {
+			return Binary(arr,target,start,mid-1);
+		}
+		return Binary(arr,target,mid+1,end);
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		
+		int[] arr= {1,2,3,4,5,6,7};
+		int start=0;
+		int end =arr.length-1;
+		int mid=0;
+		int target=9;
+		while(start<end && arr[mid]!=target) {
+			mid=(start+end)/2;
+			if(arr[mid]>target) {
+				end=mid-1;
+			}
+			if(arr[mid]<target) {
+				start=mid+1;
+			}
+			else {
+				System.out.print("Element found at index = "+mid);
+			}
+			
+			
+		}
+		if(start>=end) {
+			System.out.print("Element not found");
+		}
+		
+		/*ArrayList<Integer> list=new ArrayList<>();
+		int [] arr= {7,4,5,67,11,13,45,2,98};
+		for(int i=0;i<arr.length;i++) {
+			list.add(arr[i]);
+		}
+		Collections.sort(list);
+		System.out.println(list);
+		for(int i=0;i<arr.length;i++) {
+			arr[i]=list.get(i);
+		}
+		System.out.println(Binary(arr,13,0,arr.length-1));*/
+		
+	}
+
+}

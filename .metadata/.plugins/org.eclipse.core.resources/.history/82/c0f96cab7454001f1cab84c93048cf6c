@@ -1,0 +1,73 @@
+package Binary_Trees;
+
+import java.util.Scanner;
+
+
+
+public class Practice_BST {
+	Node root=null;
+	static class Node{
+		int value;
+		Node Left;
+		Node Right;
+		int Height;
+		
+		Node(int val){
+			this.value=val;
+		}
+	
+		public int getValue() {
+			return value;
+		}
+	}
+		public Node insert(Scanner sc) {
+			System.out.println("Enter the root value:-- ");
+			int val=sc.nextInt();
+			if(root==null) {
+				Node newnode=new Node(val);
+				root=newnode;
+			}
+			return insert(root,sc);
+			
+		}
+		public Node insert(Node node,Scanner sc) {
+			System.out.print("Do you want to enter new data:-");
+			boolean ans=sc.nextBoolean();
+			if(ans) {
+				System.out.print("Enter your data to be inserted as "+node.value+" Child :-- ");
+				int data=sc.nextInt();
+				if(data<node.value) {
+					Node newNode=new Node(data);
+					node.Left=newNode;
+					insert(newNode,sc);
+				}
+				if(data>node.value) {
+					Node newNode=new Node(data);
+					node.Right=newNode;
+					insert(newNode,sc);
+				}	
+				
+			}
+			return node;
+			
+		}
+		
+		
+		public void display(Node node) {
+			if(node==null) {
+				return;
+			}
+			System.out.print(node.value +" ");
+			display(node.Left);
+			display(node.Right);
+		}
+		public static void main(String[] args) {
+			Practice_BST BT=new Practice_BST();
+			Scanner sc=new Scanner(System.in);
+			BT.insert(sc);
+			BT.display(BT.root);
+			
+			
+		}
+
+}

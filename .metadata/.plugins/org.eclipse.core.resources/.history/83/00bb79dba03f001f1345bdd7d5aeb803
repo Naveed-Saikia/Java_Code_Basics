@@ -1,0 +1,47 @@
+class create{
+	String sports;
+	int age;
+	String records;
+	
+	// Defining a basic constructor
+	create(){
+		this.sports="Cricket";
+		this.age=26;
+		this.records="Highest Runs";
+		
+	}
+	
+	
+	// defining a copy constructor
+	create(create other){
+		
+		
+	}
+	
+	
+	
+	// Defining a third constructor of similar type
+	create(String sports,int age,String records){
+		System.out.println(sports);
+		System.out.println(age);
+		System.out.println(records);
+		
+	}
+	
+	
+	// Generic display message
+	void display(String names) {
+		System.out.print("Hello, Youre looking at the info of -- "+names);
+	}
+	
+}
+public class OOPS_3 {
+	public static void main(String args[]) {
+		// creating naveed as the first object
+		create naveed=new create();
+		create Viktor=new create("Football",25,"Fastest");
+		Viktor.display("Viktor");
+		
+	}
+
+}

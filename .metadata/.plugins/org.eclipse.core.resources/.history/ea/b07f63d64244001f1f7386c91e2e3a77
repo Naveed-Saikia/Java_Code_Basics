@@ -1,0 +1,22 @@
+package access_modifiers;
+
+public class data_hiding {
+	class A{
+		int num;
+		String name;
+		int[] arr;
+		
+		A(int a,String b){
+			this.num=a;
+			this.name=b;
+			this.arr=new int[this.num];
+			System.out.print("This is a constructor");
+			
+		}
+	}
+	public static void main(String[] args) {
+	data_hiding instance=new data_hiding();
+	A obj=instance.new A(11,"hello");
+	
+	}
+}

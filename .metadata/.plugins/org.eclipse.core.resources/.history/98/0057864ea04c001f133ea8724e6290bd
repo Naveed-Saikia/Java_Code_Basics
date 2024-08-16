@@ -1,0 +1,37 @@
+package Binary_Search;
+import java.util.*;
+
+public class BS {
+	
+	static int Binary(int [] arr,int target,int start,int end) {
+		if(arr.length==0) {
+			return -1;
+		}
+		int mid=(start+end)/2;
+		if(arr[mid]==target) {
+			return mid;
+		}
+		if(arr[mid]>target) {
+			return Binary(arr,target,start,mid-1);
+		}
+		return Binary(arr,target,mid+1,end);
+		
+	}
+	
+	
+	public static void main(String[] args) {
+		ArrayList<Integer> list=new ArrayList<>();
+		int [] arr= {7,4,5,67,11,13,45,2,98};
+		for(int i=0;i<arr.length;i++) {
+			list.add(arr[i]);
+		}
+		Collections.sort(list);
+		System.out.print(list);
+		for(int i=0;i<arr.length;i++) {
+			arr[i]=list.get(i);
+		}
+		System.out.print(Binary(arr,13,0,arr.length-1));
+		
+	}
+
+}
